@@ -1,9 +1,11 @@
 import requests
+import os
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, CallbackContext
+from dotenv import load_dotenv
 
-API_KEY = "8a3b6994ce6b48708f4b972df86523e2"
-BOT_TOKEN = "7652275196:AAHLDch7LVVm8-DaVSxjJ1x6dv5fn3nAYEE"
+API_KEY = os.getenv("API_KEY")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 def get_currency_rates():
     response = requests.get(f"https://openexchangerates.org/api/latest.json?app_id={API_KEY}")
